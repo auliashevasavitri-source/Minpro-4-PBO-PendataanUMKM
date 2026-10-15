@@ -122,7 +122,7 @@ public class UMKMView {
                 InfoUMKM info = (InfoUMKM) umkm;
                 info.tampilkanInfo();
             }
-             
+          
 
         } else if (pilihan == 2) {
 

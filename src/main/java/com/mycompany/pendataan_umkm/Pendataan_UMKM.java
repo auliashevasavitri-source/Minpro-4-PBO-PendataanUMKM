@@ -20,19 +20,10 @@ public class Pendataan_UMKM {
         // Membuat controller
         UMKMController controller = new UMKMController();
 
-        // Dummy data
-        UMKM umkm = new UMKM(
-                1,
-                "Dapur Aulia",
-                "Aulia",
-                new JenisKuliner("Kuliner"),
-                event
-        );
-
-        controller.tambahUMKM(umkm);
-
+        
         // Menjalankan tampilan program
         UMKMView view = new UMKMView(controller, event);
         view.tampilkanMenu();
     }
+    
 }

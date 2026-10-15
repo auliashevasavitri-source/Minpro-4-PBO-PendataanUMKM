@@ -1,27 +1,31 @@
+
 package controller;
 
+import dao.UMKMDAO;
 import java.util.ArrayList;
 import model.UMKM;
 
 public class UMKMController {
 
-    private ArrayList<UMKM> daftarUMKM;
+    private final UMKMDAO umkmDAO;
 
     public UMKMController() {
-        daftarUMKM = new ArrayList<>();
+        umkmDAO = new UMKMDAO();
     }
 
+    // Mengambil semua data dari database
     public ArrayList<UMKM> getDaftarUMKM() {
-        return daftarUMKM;
+        return umkmDAO.tampilkanSemua();
     }
 
-    public void tambahUMKM(UMKM umkm) {
-        daftarUMKM.add(umkm);
+    // Menambahkan data ke database
+    public boolean tambahUMKM(UMKM umkm) {
+        return umkmDAO.tambah(umkm);
     }
 
+    // Mencari UMKM berdasarkan ID
     public UMKM cariUMKM(int id) {
-        for (UMKM umkm : daftarUMKM) {
-
+        for (UMKM umkm : umkmDAO.tampilkanSemua()) {
             if (umkm.getIdUMKM() == id) {
                 return umkm;
             }
@@ -30,16 +34,13 @@ public class UMKMController {
         return null;
     }
 
+    // Mengubah data UMKM di database
+    public boolean ubahUMKM(UMKM umkm) {
+        return umkmDAO.ubah(umkm);
+    }
+
+    // Menghapus data UMKM dari database
     public boolean hapusUMKM(int id) {
-
-        for (int i = 0; i < daftarUMKM.size(); i++) {
-
-            if (daftarUMKM.get(i).getIdUMKM() == id) {
-                daftarUMKM.remove(i);
-                return true;
-            }
-        }
-
-        return false;
+        return umkmDAO.hapus(id);
     }
 }
