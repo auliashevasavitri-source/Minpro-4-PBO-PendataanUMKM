@@ -139,6 +139,7 @@ public class UMKMView {
         }
     }
 
+    
     private void ubahData() {
 
         System.out.println();
@@ -162,8 +163,13 @@ public class UMKMView {
         umkm.setNamaPemilik(namaPemilik);
         umkm.setJenisUsaha(jenisUsaha);
 
+            if (controller.ubahUMKM(umkm)) {
         System.out.println("Data UMKM berhasil diubah.");
+        } else {
+            System.out.println("Data UMKM gagal diubah.");
+        }
     }
+
 
     private void hapusData() {
 
